@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+        <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-eval' 'unsafe-inline'; object-src 'self'; style-src 'self' 'unsafe-inline'; media-src *">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+		<link rel="stylesheet" href="css/bootstrap.css">
+		<link rel="stylesheet" href="css/main.css">
+		<script src="js/jquery.js"></script>
+        <title>Venda</title>
+		<style>
+		.lista_cliente{
+			background:#fff;
+			padding:3px;
+		}
+		.lista_cliente .li_cliente{
+			padding:3px;
+		}
+		#saldoconta font{font-size:20px;}
+		</style>
+    </head>
+    <body>
+			<div data-role="page" class="jqm-demos jqm-panel-page" data-quicklinks="true">
+				<div class="col-md-12" id="consignacao">
+					<div class="form-group col-md-6 col-md-offset-3">
+						<h3>Realiza Venda</h3>
+					</div>
+					<!--<div class="form-group col-md-6 col-md-offset-3">
+						<input type = "text" name = "numerovenda"  id="numerovenda"  placeholder="Número Venda" class=" form-control">
+					</div>-->
+					<div class="form-group col-md-6 col-md-offset-3">
+						<input type="hidden"  name="idvenda" id="idvenda"/>
+						<select name="idfuncionario" id = "idfuncionario" class=" form-control"></select>
+					</div>
+					<div class="form-group col-md-6 col-md-offset-3">
+						<select name="idtabelavenda" id = "idtabelavenda" class=" form-control"></select>
+						<input type = "hidden" name = "fator" id="fator">
+					</div>
+					<div class="form-group col-md-6 col-md-offset-3">
+						<h3>Cliente</h3>
+					</div>
+					<div class="form-group col-md-6 col-md-offset-3">
+						<input type = "text" name = "idcliente"  id="idcliente"  placeholder="Número Cliente" class=" form-control">
+					</div>
+					<div class="form-group col-md-6 col-md-offset-3">
+						<input type = "text" name = "nomeconsulta"  id="nomeconsulta"  placeholder="Nome Cliente" class=" form-control">
+						<div id="cmb_cliente"></div>
+					</div>
+					<div class="form-group col-md-6 col-md-offset-3">
+						<input type = "text" name = "cpfconsulta"  id="cpfconsulta"  placeholder="CPF Cliente" class=" form-control">
+					</div>
+					<div class="form-group col-md-6 col-md-offset-3">
+						<h3>Limite Crédito</h3>
+					</div>
+					<div class="form-group col-md-6 col-md-offset-3">
+						<input type = "text" name = "valorcredito"  id="valorcredito"  readonly class=" form-control">
+					</div>
+					<div class="form-group col-md-6 col-md-offset-3">
+						<h3>Saldo Vale</h3>
+					</div>
+					<div class="form-group col-md-6 col-md-offset-3">
+						<input type = "text" name = "saldovale"  id="saldovale"  readonly class=" form-control">
+					</div>
+					<div class="form-group col-md-6 col-md-offset-3">
+						<h3>Saldo Conta</h3>
+					</div>
+					<div class="form-group col-md-6 col-md-offset-3">
+						<span id="saldoconta"></span>
+					</div>
+					<div class="form-group col-md-6 col-md-offset-3" id="abertura_venda" style="display:none">
+						<input type = "button" id = "abrirVenda"  value = "Abrir Venda"  class="btn btn-success form-control" />
+						<input type="hidden"  name="crediario" id="crediario"/>
+					</div>
+					<div id="produto" style="display:none">
+						<div class="form-group col-md-6 col-md-offset-3">
+							<h3>Adicionar Produto</h3>
+						</div>
+						<div class="form-group col-md-6 col-md-offset-3">
+							<input type="text" name="codigobarra" id="codigobarra" placeholder="Código de Barra" class="form-control">
+						</div>
+						<div class="form-group col-md-6 col-md-offset-3">
+							<input type="button" placeholder="" value="Scan" onclick="javascript:scan();">
+						</div>
+						<div class="form-group col-md-6 col-md-offset-3">
+							<input type="text" name="quantidade" id="quantidade" placeholder="Quantidade" class=" form-control">
+						</div>
+						<div class="form-group col-md-6 col-md-offset-3">
+							<b>Senha para Liberar produto estoque zero/negativo: </b>
+						</div>
+						<div class="form-group col-md-6 col-md-offset-3">
+							<input type="password" id="senhaestoque"  class="form-control" maxlength="6"/>
+						</div>
+					</div>	
+					<div class="form-group col-md-6 col-md-offset-3">
+						<span id="msg"></span>
+					</div>
+					<div class="form-group col-md-6 col-md-offset-3">
+						<span id="tab_produto"></span>
+					</div>
+				</div>	
+			</div>
+        <!--<script type="text/javascript" src="cordova.js"></script>	
+        <script type="text/javascript" src="js/jquery.maskedinput.js"></script>	-->	
+        <script type="text/javascript" src="src/cordova.js"></script>	
+		<script>
+			var url   = window.location.search.replace("?", "");
+			var itens = url.split("&");
+			var idfuncionario = itens[0];	
+			var idfuncionario = idfuncionario.split("=");
+			var idfuncionario = idfuncionario[1];	
+			var funcionario = itens[1];	
+			var funcionario = funcionario.split("=");
+			var funcionario = funcionario[1];
+			var idloja = itens[2];	
+			var idloja = idloja.split("=");
+			var idloja = idloja[1];
+			var codigo = itens[3];	
+			var codigo = codigo.split("=");
+			var codigo = codigo[1];
+			var server = itens[4];	
+			var server = server.split("=");
+			var server = server[1];
+			
+			function scan(){
+			   cordova.plugins.barcodeScanner.scan(
+				  function (result) {
+					  alert("We got a barcode\n" +
+							"Result: " + result.text + "\n" +
+							"Format: " + result.format + "\n" +
+							"Cancelled: " + result.cancelled);
+				  }, 
+				  function (error) {
+					  alert("Scanning failed: " + error);
+				  }
+			   );
+			}
+			//$('#cpfconsulta').mask('999.999.999-99');
+		</script>
+        <script type="text/javascript" src="js/buscaNumeroVenda.js"></script>		
+        <script type="text/javascript" src="js/buscaFuncionario.js"></script>		
+        <script type="text/javascript" src="js/buscaPrazo.js"></script>		
+        <script type="text/javascript" src="js/buscaClienteId.js"></script>		
+        <script type="text/javascript" src="js/abrirVenda.js"></script>		
+        <script type="text/javascript" src="js/addProduto.js"></script>		
+        <script type="text/javascript" src="js/buscarClienteCmb.js"></script>	
+        <script type="text/javascript" src="js/functions.js"></script>	
+    </body>
+</html>

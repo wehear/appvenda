@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+        <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-eval' 'unsafe-inline'; object-src 'self'; style-src 'self' 'unsafe-inline'; media-src *">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+		<link rel="stylesheet" href="css/bootstrap.css">
+		<link rel="stylesheet" href="css/main.css">
+		<script src="js/jquery.js"></script>
+		<script src="js/jquery.maskMoney.min.js"></script>
+        <title>Venda</title>
+		<style>
+		.lista_cliente{
+			background:#fff;
+			padding:3px;
+		}
+		.lista_cliente .li_cliente{
+			padding:3px;
+		}
+		</style>
+    </head>
+    <body>
+			<div data-role="page" class="jqm-demos jqm-panel-page" data-quicklinks="true">
+				<form class="col-md-12" id="form">
+					<div class="form-group col-md-6 col-md-offset-3">
+						<h3>Finaliza Venda</h3>
+					</div>
+					<div class="form-group col-md-6 col-md-offset-3">
+						<textarea name="obs" id = "observacao" class=" form-control" placeholder="Observação"></textarea>
+					</div>
+					<div class="form-group col-md-6 col-md-offset-3">
+						<select name="idtabelavenda" id = "idtabelavenda" class=" form-control"></select>
+					</div>
+					<div class="form-group col-md-6 col-md-offset-3">
+						<input type = "text" name = "porcentagemdesconto" id="porcentagemdesconto" placeholder="Desconto %"  max="100" class=" form-control">
+					</div>
+					<div class="form-group col-md-6 col-md-offset-3">
+						<input type = "text" name = "valordesconto" id="valordesconto"  placeholder="Desconto R$" class="valor form-control">
+					</div>
+					<div class="form-group col-md-6 col-md-offset-3">
+						<input type = "number" name = "quantidadeparcela" id="quantidadeparcela" placeholder="Quantidade Parcela"  class=" form-control">
+					</div>
+					<div class="form-group col-md-6 col-md-offset-3">
+						<input type = "number" name = "primeiraparcela" id="primeiraparcela"  placeholder="Primeira Parcela" class=" form-control">
+					</div>
+					<div class="form-group col-md-6 col-md-offset-3">
+						<input type = "hidden" name = "fator" id="fator">
+						<input type = "hidden" name = "idtabelavenda" id="idtabelavendatela1">
+						<input type = "hidden" name = "demaisparcelas" id="demaisparcelas">
+						<input type = "hidden" name = "idcliente" id="idcliente">
+						<input type = "hidden" name = "valortotal" id="valortotal">
+						<input type = "hidden" name = "valortotalreal" id="valortotalreal">
+						<input type = "hidden" name = "primeiracompra_status" id="primeiracompra_status">
+						<input type = "hidden" name = "quantidadeparcelapermitida" id="quantidadeparcelapermitida">
+					</div>
+					<div class="form-group col-md-6 col-md-offset-3" id="gerarparcelasdiv" style="display:none">
+						<input type = "button" id = "gerarParcelas"  value = "Gerar Parcelas"  class="btn btn-success form-control" />
+					</div>
+					<div id="telaparcelas"></div>
+					<div id="teladescontos"></div>
+					<div class="form-group col-md-6 col-md-offset-3" id="totaltela">
+						Total <span id="total"></span>
+					</div>
+				</form>	
+			</div>
+		<script>
+			var url   = window.location.search.replace("?", "");
+			var itens = url.split("&");
+			var idfuncionario = itens[0];	
+			var idfuncionario = idfuncionario.split("=");
+			var idfuncionario = idfuncionario[1];	
+			var funcionario = itens[1];	
+			var funcionario = funcionario.split("=");
+			var funcionario = funcionario[1];
+			var idloja = itens[2];	
+			var idloja = idloja.split("=");
+			var idloja = idloja[1];
+			var codigo = itens[3];	
+			var codigo = codigo.split("=");
+			var codigo = codigo[1];
+			var server = itens[4];	
+			var server = server.split("=");
+			var server = server[1];
+			var idvenda = itens[5];	
+			var idvenda = idvenda.split("=");
+			var idvenda = idvenda[1];
+			var fator = itens[6];	
+			var fator = fator.split("=");
+			var fator = fator[1];
+			var idtabelavenda = itens[7];	
+			var idtabelavenda = idtabelavenda.split("=");
+			var idtabelavenda = idtabelavenda[1];
+			var total = itens[8];	
+			var total = total.split("=");
+			var total = total[1];
+			document.getElementById('idtabelavendatela1').value = idtabelavenda;
+			$('#total').html('R$ ' + total);
+			$('#valortotal').val(total);
+			$('#valortotalreal').val(total);
+			
+			
+			//$('#cpfconsulta').mask('999.999.999-99');
+		</script>			
+        <script type="text/javascript" src="js/finalizaVenda.js"></script>			
+        <script type="text/javascript" src="js/buscaPrazo.js"></script>			
+        <script type="text/javascript" src="js/submeterPrazo.js"></script>			
+        <script type="text/javascript" src="js/submeterPorc.js"></script>			
+        <script type="text/javascript" src="js/submeterDescontoAcr.js"></script>			
+        <script type="text/javascript" src="js/gerarParcelas.js"></script>			
+        <script type="text/javascript" src="js/encerraVenda.js"></script>			
+        <!--<script type="text/javascript" src="js/buscarClienteCmb.js"></script>-->	
+    </body>
+</html>

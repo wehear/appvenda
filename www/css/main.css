@@ -1,0 +1,950 @@
+*{font-size: 13px}
+
+body{
+	background:#FACF00 !important;
+}
+
+
+
+
+
+
+
+@media screen and (max-width:320px) {
+
+	.ui-overlay-a, .ui-page-theme-a, .ui-page-theme-a .ui-panel-wrapper{background:#FACF00 !important;}
+
+	.ui-bar-a, .ui-page-theme-a .ui-bar-inherit, html .ui-bar-a .ui-bar-inherit, html .ui-body-a .ui-bar-inherit, html body .ui-group-theme-a .ui-bar-inherit{
+		color:#fff;
+		text-shadow: 0 1px 0 #000;
+		background:#1F1A17 !important;
+		border:none !important
+	}
+	.login_input{
+		width:100px !important;
+	}
+
+	.ui-body-a, .ui-page-theme-a .ui-body-inherit, html .ui-bar-a .ui-body-inherit, html .ui-body-a .ui-body-inherit, html body .ui-group-theme-a .ui-body-inherit, html .ui-panel-page-container-a{
+		width:200px;
+		margin: 0 auto;
+		margin-top:10px;
+		height:40px;
+		line-height:40px !important;
+	}
+
+	.ui-mobile label, .ui-controlgroup-label{
+		width:200px;
+		margin: 0 auto;
+		color:#000;
+		text-shadow: 0 1px 0 #777;
+	}
+
+	.ui-input-text input, .ui-input-search input  {
+		height:40px;
+		line-height:40px !important;
+	}
+
+
+	.ui-page-theme-a .ui-btn, html .ui-bar-a .ui-btn, html .ui-body-a .ui-btn, html body .ui-group-theme-a .ui-btn, html head+body .ui-btn.ui-btn-a, .ui-page-theme-a .ui-btn, html .ui-bar-a .ui-btn, html .ui-body-a .ui-btn, html body .ui-group-theme-a .ui-btn, html head+body .ui-btn.ui-btn-a{
+		width:170px;
+		margin: 0 auto;
+		margin-top:10px;
+		height:40px;
+		line-height:40px !important;
+		background:#777777 !important;
+		color:#fff;
+		text-shadow: 0 1px 0 #000;
+		border:none
+	}
+
+
+	.botoes_hide{
+		display:none
+	}
+
+	li{list-style: none}
+	#consignacao{
+		margin: 10px
+	}
+
+	#autocompleteCliente{
+
+	}
+
+	#autocompleteCliente .nomeCLiente{
+		border-bottom: #ccc solid 1px;
+		width: 100%;
+		padding: 5px;
+	}
+
+	#botao_abrir{
+		display:none;
+		height:40px;
+		width:200px;
+		line-height:40px !important;
+		background:#777777 !important;
+		color:#fff;
+		text-shadow: 0 1px 0 #000;
+		border-radius: 5px;
+		-webkit-border-radius: 5px;
+		-moz-border-radius: 5px;
+		margin: 0 auto;
+		margin-top: 10px;
+		text-align: center;
+		height: 35px;
+		line-height: 35px;
+	}
+
+	#referenciaBusca li{
+		padding: 5px;
+	}
+
+	#ultimoProduto{
+		margin: 0 auto;
+		width: 200px;
+		text-align: center;
+		display:none;
+		background:#eee;
+		padding-bottom:10px
+	}
+
+	#ultimoProduto .Quantidade, .CodigoBarraAnt, .CodigoFornecedor{
+		width: 200px;
+		text-align: center;
+		margin-top: 10px;
+	}
+
+	#ultimoProduto .Descricao, .Imagem{
+		margin-top: 10px;
+	}
+
+	#ultimoProduto .DescricaoEtiqueta2, .Precovenda, .Unitario{
+		width: 200px;
+		text-align: center;
+		margin-top: 10px;
+	}
+
+	.div_produto{
+		width:200px;
+		margin:0 auto;
+		text-align:center;
+		margin-bottom:25px;
+		background:#eee;
+		border-radius: 5px;
+		-webkit-border-radius: 5px;
+		-moz-border-radius: 5px;
+	}
+
+	.div_produto .item_produto{
+		width:200px;
+		margin:0 auto;
+		/*border-bottom:1px solid #000;*/
+		text-align:center;
+		padding-top:5px;
+		padding-bottom:5px;
+	}
+	div.ui-slider{
+		width:200px;
+		margin:0 auto !important;
+		height: 70px;
+	}
+	div.ui-slider .ui-slider-track{
+		top:26px
+	}
+
+	.titulo_tabela{
+		width:200px;
+		margin:0 auto;
+		text-align:center;
+		background:#eee;
+		padding-top:5px;
+		padding-bottom:5px;
+	}
+
+}
+
+
+
+@media screen and (min-width:320px) {
+
+	.ui-overlay-a, .ui-page-theme-a, .ui-page-theme-a .ui-panel-wrapper{background:#FACF00 !important;}
+
+	.ui-bar-a, .ui-page-theme-a .ui-bar-inherit, html .ui-bar-a .ui-bar-inherit, html .ui-body-a .ui-bar-inherit, html body .ui-group-theme-a .ui-bar-inherit{
+		color:#fff;
+		text-shadow: 0 1px 0 #000;
+		background:#1F1A17 !important;
+		border:none !important
+	}
+	.login_input{
+		width:100px !important;
+	}
+
+	.ui-body-a, .ui-page-theme-a .ui-body-inherit, html .ui-bar-a .ui-body-inherit, html .ui-body-a .ui-body-inherit, html body .ui-group-theme-a .ui-body-inherit, html .ui-panel-page-container-a{
+		width:200px;
+		margin: 0 auto;
+		margin-top:10px;
+		height:40px;
+		line-height:40px !important;
+	}
+
+	.ui-mobile label, .ui-controlgroup-label{
+		width:200px;
+		margin: 0 auto;
+		color:#000;
+		text-shadow: 0 1px 0 #777;
+	}
+
+	.ui-input-text input, .ui-input-search input  {
+		height:40px;
+		line-height:40px !important;
+	}
+
+
+	.ui-page-theme-a .ui-btn, html .ui-bar-a .ui-btn, html .ui-body-a .ui-btn, html body .ui-group-theme-a .ui-btn, html head+body .ui-btn.ui-btn-a, .ui-page-theme-a .ui-btn, html .ui-bar-a .ui-btn, html .ui-body-a .ui-btn, html body .ui-group-theme-a .ui-btn, html head+body .ui-btn.ui-btn-a{
+		width:170px;
+		margin: 0 auto;
+		margin-top:10px;
+		height:40px;
+		line-height:40px !important;
+		background:#777777 !important;
+		color:#fff;
+		text-shadow: 0 1px 0 #000;
+		border:none
+	}
+
+
+	.botoes_hide{
+		display:none
+	}
+
+	li{list-style: none}
+	#consignacao{
+		margin: 10px
+	}
+
+	#autocompleteCliente{
+
+	}
+
+	#autocompleteCliente .nomeCLiente{
+		border-bottom: #ccc solid 1px;
+		width: 100%;
+		padding: 5px;
+	}
+
+	#botao_abrir{
+		display:none;
+		height:40px;
+		width:200px;
+		line-height:40px !important;
+		background:#777777 !important;
+		color:#fff;
+		text-shadow: 0 1px 0 #000;
+		border-radius: 5px;
+		-webkit-border-radius: 5px;
+		-moz-border-radius: 5px;
+		margin: 0 auto;
+		margin-top: 10px;
+		text-align: center;
+		height: 35px;
+		line-height: 35px;
+	}
+
+	#referenciaBusca li{
+		padding: 5px;
+	}
+
+	#ultimoProduto{
+		margin: 0 auto;
+		width: 200px;
+		text-align: center;
+		display:none;
+		background:#eee;
+		padding-bottom:10px
+	}
+
+	#ultimoProduto .Quantidade, .CodigoBarraAnt, .CodigoFornecedor{
+		width: 200px;
+		text-align: center;
+		margin-top: 10px;
+	}
+
+	#ultimoProduto .Descricao, .Imagem{
+		margin-top: 10px;
+	}
+
+	#ultimoProduto .DescricaoEtiqueta2, .Precovenda, .Unitario{
+		width: 200px;
+		text-align: center;
+		margin-top: 10px;
+	}
+
+	.div_produto{
+		width:200px;
+		margin:0 auto;
+		text-align:center;
+		margin-bottom:25px;
+		background:#eee;
+		border-radius: 5px;
+		-webkit-border-radius: 5px;
+		-moz-border-radius: 5px;
+	}
+
+	.div_produto .item_produto{
+		width:200px;
+		margin:0 auto;
+		/*border-bottom:1px solid #000;*/
+		text-align:center;
+		padding-top:5px;
+		padding-bottom:5px;
+	}
+	div.ui-slider{
+		width:200px;
+		margin:0 auto !important;
+		height: 70px;
+	}
+	div.ui-slider .ui-slider-track{
+		top:26px
+	}
+
+	.titulo_tabela{
+		width:200px;
+		margin:0 auto;
+		text-align:center;
+		background:#eee;
+		padding-top:5px;
+		padding-bottom:5px;
+	}
+
+}
+
+
+
+@media screen and (min-width:480px) { 
+
+	.ui-overlay-a, .ui-page-theme-a, .ui-page-theme-a .ui-panel-wrapper{background:#FACF00 !important;}
+
+	.ui-bar-a, .ui-page-theme-a .ui-bar-inherit, html .ui-bar-a .ui-bar-inherit, html .ui-body-a .ui-bar-inherit, html body .ui-group-theme-a .ui-bar-inherit{
+		color:#fff;
+		text-shadow: 0 1px 0 #000;
+		background:#1F1A17 !important;
+		border:none !important
+	}
+	.login_input{
+		width:100px !important;
+	}
+
+	.ui-body-a, .ui-page-theme-a .ui-body-inherit, html .ui-bar-a .ui-body-inherit, html .ui-body-a .ui-body-inherit, html body .ui-group-theme-a .ui-body-inherit, html .ui-panel-page-container-a{
+		width:200px;
+		margin: 0 auto;
+		margin-top:10px;
+		height:40px;
+		line-height:40px !important;
+	}
+
+	.ui-mobile label, .ui-controlgroup-label{
+		width:200px;
+		margin: 0 auto;
+		color:#000;
+		text-shadow: 0 1px 0 #777;
+	}
+
+	.ui-input-text input, .ui-input-search input  {
+		height:40px;
+		line-height:40px !important;
+	}
+
+
+	.ui-page-theme-a .ui-btn, html .ui-bar-a .ui-btn, html .ui-body-a .ui-btn, html body .ui-group-theme-a .ui-btn, html head+body .ui-btn.ui-btn-a, .ui-page-theme-a .ui-btn, html .ui-bar-a .ui-btn, html .ui-body-a .ui-btn, html body .ui-group-theme-a .ui-btn, html head+body .ui-btn.ui-btn-a{
+		width:170px;
+		margin: 0 auto;
+		margin-top:10px;
+		height:40px;
+		line-height:40px !important;
+		background:#777777 !important;
+		color:#fff;
+		text-shadow: 0 1px 0 #000;
+		border:none
+	}
+
+
+	.botoes_hide{
+		display:none
+	}
+
+	li{list-style: none}
+	#consignacao{
+		margin: 10px
+	}
+
+	#autocompleteCliente{
+
+	}
+
+	#autocompleteCliente .nomeCLiente{
+		border-bottom: #ccc solid 1px;
+		width: 100%;
+		padding: 5px;
+	}
+
+	#botao_abrir{
+		display:none;
+		height:40px;
+		width:200px;
+		line-height:40px !important;
+		background:#777777 !important;
+		color:#fff;
+		text-shadow: 0 1px 0 #000;
+		border-radius: 5px;
+		-webkit-border-radius: 5px;
+		-moz-border-radius: 5px;
+		margin: 0 auto;
+		margin-top: 10px;
+		text-align: center;
+		height: 35px;
+		line-height: 35px;
+	}
+
+	#referenciaBusca li{
+		padding: 5px;
+	}
+
+	#ultimoProduto{
+		margin: 0 auto;
+		width: 200px;
+		text-align: center;
+		display:none;
+		background:#eee;
+		padding-bottom:10px
+	}
+
+	#ultimoProduto .Quantidade, .CodigoBarraAnt, .CodigoFornecedor{
+		width: 200px;
+		text-align: center;
+		margin-top: 10px;
+	}
+
+	#ultimoProduto .Descricao, .Imagem{
+		margin-top: 10px;
+	}
+
+	#ultimoProduto .DescricaoEtiqueta2, .Precovenda, .Unitario{
+		width: 200px;
+		text-align: center;
+		margin-top: 10px;
+	}
+
+	.div_produto{
+		width:200px;
+		margin:0 auto;
+		text-align:center;
+		margin-bottom:25px;
+		background:#eee;
+		border-radius: 5px;
+		-webkit-border-radius: 5px;
+		-moz-border-radius: 5px;
+	}
+
+	.div_produto .item_produto{
+		width:200px;
+		margin:0 auto;
+		/*border-bottom:1px solid #000;*/
+		text-align:center;
+		padding-top:5px;
+		padding-bottom:5px;
+	}
+	div.ui-slider{
+		width:200px;
+		margin:0 auto !important;
+		height: 70px;
+	}
+	div.ui-slider .ui-slider-track{
+		top:26px
+	}
+
+	.titulo_tabela{
+		width:200px;
+		margin:0 auto;
+		text-align:center;
+		background:#eee;
+		padding-top:5px;
+		padding-bottom:5px;
+	}
+
+}
+
+
+
+@media screen and (min-width:600px) { 
+
+	.ui-overlay-a, .ui-page-theme-a, .ui-page-theme-a .ui-panel-wrapper{background:#FACF00 !important;}
+
+	.ui-bar-a, .ui-page-theme-a .ui-bar-inherit, html .ui-bar-a .ui-bar-inherit, html .ui-body-a .ui-bar-inherit, html body .ui-group-theme-a .ui-bar-inherit{
+		color:#fff;
+		text-shadow: 0 1px 0 #000;
+		background:#1F1A17 !important;
+		border:none !important
+	}
+	.login_input{
+		width:200px !important;
+	}
+
+	.ui-body-a, .ui-page-theme-a .ui-body-inherit, html .ui-bar-a .ui-body-inherit, html .ui-body-a .ui-body-inherit, html body .ui-group-theme-a .ui-body-inherit, html .ui-panel-page-container-a{
+		width:400px;
+		margin: 0 auto;
+		margin-top:10px;
+		height:40px;
+		line-height:40px !important;
+	}
+
+	.ui-mobile label, .ui-controlgroup-label{
+		width:200px;
+		margin: 0 auto;
+		color:#000;
+		text-shadow: 0 1px 0 #777;
+	}
+
+	.ui-input-text input, .ui-input-search input  {
+		height:40px;
+		line-height:40px !important;
+	}
+
+
+	.ui-page-theme-a .ui-btn, html .ui-bar-a .ui-btn, html .ui-body-a .ui-btn, html body .ui-group-theme-a .ui-btn, html head+body .ui-btn.ui-btn-a, .ui-page-theme-a .ui-btn, html .ui-bar-a .ui-btn, html .ui-body-a .ui-btn, html body .ui-group-theme-a .ui-btn, html head+body .ui-btn.ui-btn-a{
+		width:170px;
+		margin: 0 auto;
+		margin-top:10px;
+		height:40px;
+		line-height:40px !important;
+		background:#777777 !important;
+		color:#fff;
+		text-shadow: 0 1px 0 #000;
+		border:none
+	}
+
+
+	.botoes_hide{
+		display:none
+	}
+
+	li{list-style: none}
+	#consignacao{
+		margin: 10px
+	}
+
+	#autocompleteCliente{
+
+	}
+
+	#autocompleteCliente .nomeCLiente{
+		border-bottom: #ccc solid 1px;
+		width: 100%;
+		padding: 5px;
+	}
+
+	#botao_abrir{
+		display:none;
+		height:40px;
+		width:400px;
+		line-height:40px !important;
+		background:#777777 !important;
+		color:#fff;
+		text-shadow: 0 1px 0 #000;
+		border-radius: 5px;
+		-webkit-border-radius: 5px;
+		-moz-border-radius: 5px;
+		margin: 0 auto;
+		margin-top: 10px;
+		text-align: center;
+		height: 35px;
+		line-height: 35px;
+	}
+
+	#referenciaBusca li{
+		padding: 5px;
+	}
+
+	#ultimoProduto{
+		margin: 0 auto;
+		width: 400px;
+		text-align: center;
+		display:none;
+		background:#eee;
+		padding-bottom:10px
+	}
+
+	#ultimoProduto .Quantidade, .CodigoBarraAnt, .CodigoFornecedor{
+		width: 400px;
+		text-align: center;
+		margin-top: 10px;
+	}
+
+	#ultimoProduto .Descricao, .Imagem{
+		margin-top: 10px;
+	}
+
+	#ultimoProduto .DescricaoEtiqueta2, .Precovenda, .Unitario{
+		width: 400px;
+		text-align: center;
+		margin-top: 10px;
+	}
+
+	.div_produto{
+		width:400px;
+		margin:0 auto;
+		text-align:center;
+		margin-bottom:25px;
+		background:#eee;
+		border-radius: 5px;
+		-webkit-border-radius: 5px;
+		-moz-border-radius: 5px;
+	}
+
+	.div_produto .item_produto{
+		width:400px;
+		margin:0 auto;
+		/*border-bottom:1px solid #000;*/
+		text-align:center;
+		padding-top:5px;
+		padding-bottom:5px;
+	}
+	div.ui-slider{
+		width:400px;
+		margin:0 auto !important;
+		height: 70px;
+	}
+	div.ui-slider .ui-slider-track{
+		top:26px
+	}
+
+	.titulo_tabela{
+		width:400px;
+		margin:0 auto;
+		text-align:center;
+		background:#eee;
+		padding-top:5px;
+		padding-bottom:5px;
+	}
+
+}
+
+
+@media screen and (min-width:768px) {  
+
+
+	.ui-overlay-a, .ui-page-theme-a, .ui-page-theme-a .ui-panel-wrapper{background:#FACF00 !important;}
+
+	.ui-bar-a, .ui-page-theme-a .ui-bar-inherit, html .ui-bar-a .ui-bar-inherit, html .ui-body-a .ui-bar-inherit, html body .ui-group-theme-a .ui-bar-inherit{
+		color:#fff;
+		text-shadow: 0 1px 0 #000;
+		background:#1F1A17 !important;
+		border:none !important
+	}
+	.login_input{
+		width:200px !important;
+	}
+
+	.ui-body-a, .ui-page-theme-a .ui-body-inherit, html .ui-bar-a .ui-body-inherit, html .ui-body-a .ui-body-inherit, html body .ui-group-theme-a .ui-body-inherit, html .ui-panel-page-container-a{
+		width:400px;
+		margin: 0 auto;
+		margin-top:10px;
+		height:40px;
+		line-height:40px !important;
+	}
+
+	.ui-mobile label, .ui-controlgroup-label{
+		width:200px;
+		margin: 0 auto;
+		color:#000;
+		text-shadow: 0 1px 0 #777;
+	}
+
+	.ui-input-text input, .ui-input-search input  {
+		height:40px;
+		line-height:40px !important;
+	}
+
+
+	.ui-page-theme-a .ui-btn, html .ui-bar-a .ui-btn, html .ui-body-a .ui-btn, html body .ui-group-theme-a .ui-btn, html head+body .ui-btn.ui-btn-a, .ui-page-theme-a .ui-btn, html .ui-bar-a .ui-btn, html .ui-body-a .ui-btn, html body .ui-group-theme-a .ui-btn, html head+body .ui-btn.ui-btn-a{
+		width:170px;
+		margin: 0 auto;
+		margin-top:10px;
+		height:40px;
+		line-height:40px !important;
+		background:#777777 !important;
+		color:#fff;
+		text-shadow: 0 1px 0 #000;
+		border:none
+	}
+
+
+	.botoes_hide{
+		display:none
+	}
+
+	li{list-style: none}
+	#consignacao{
+		margin: 10px
+	}
+
+	#autocompleteCliente{
+
+	}
+
+	#autocompleteCliente .nomeCLiente{
+		border-bottom: #ccc solid 1px;
+		width: 100%;
+		padding: 5px;
+	}
+
+	#botao_abrir{
+		display:none;
+		height:40px;
+		width:400px;
+		line-height:40px !important;
+		background:#777777 !important;
+		color:#fff;
+		text-shadow: 0 1px 0 #000;
+		border-radius: 5px;
+		-webkit-border-radius: 5px;
+		-moz-border-radius: 5px;
+		margin: 0 auto;
+		margin-top: 10px;
+		text-align: center;
+		height: 35px;
+		line-height: 35px;
+	}
+
+	#referenciaBusca li{
+		padding: 5px;
+	}
+
+	#ultimoProduto{
+		margin: 0 auto;
+		width: 400px;
+		text-align: center;
+		display:none;
+		background:#eee;
+		padding-bottom:10px
+	}
+
+	#ultimoProduto .Quantidade, .CodigoBarraAnt, .CodigoFornecedor{
+		width: 400px;
+		text-align: center;
+		margin-top: 10px;
+	}
+
+	#ultimoProduto .Descricao, .Imagem{
+		margin-top: 10px;
+	}
+
+	#ultimoProduto .DescricaoEtiqueta2, .Precovenda, .Unitario{
+		width: 400px;
+		text-align: center;
+		margin-top: 10px;
+	}
+
+	.div_produto{
+		width:400px;
+		margin:0 auto;
+		text-align:center;
+		margin-bottom:25px;
+		background:#eee;
+		border-radius: 5px;
+		-webkit-border-radius: 5px;
+		-moz-border-radius: 5px;
+	}
+
+	.div_produto .item_produto{
+		width:400px;
+		margin:0 auto;
+		/*border-bottom:1px solid #000;*/
+		text-align:center;
+		padding-top:5px;
+		padding-bottom:5px;
+	}
+	div.ui-slider{
+		width:400px;
+		margin:0 auto !important;
+		height: 70px;
+	}
+	div.ui-slider .ui-slider-track{
+		top:26px
+	}
+
+	.titulo_tabela{
+		width:400px;
+		margin:0 auto;
+		text-align:center;
+		background:#eee;
+		padding-top:5px;
+		padding-bottom:5px;
+	}
+
+}
+
+
+@media screen and (min-width:992px) { 
+
+
+	.ui-overlay-a, .ui-page-theme-a, .ui-page-theme-a .ui-panel-wrapper{background:#FACF00 !important;}
+
+	.ui-bar-a, .ui-page-theme-a .ui-bar-inherit, html .ui-bar-a .ui-bar-inherit, html .ui-body-a .ui-bar-inherit, html body .ui-group-theme-a .ui-bar-inherit{
+		color:#fff;
+		text-shadow: 0 1px 0 #000;
+		background:#1F1A17 !important;
+		border:none !important
+	}
+	.login_input{
+		width:200px !important;
+	}
+
+	.ui-body-a, .ui-page-theme-a .ui-body-inherit, html .ui-bar-a .ui-body-inherit, html .ui-body-a .ui-body-inherit, html body .ui-group-theme-a .ui-body-inherit, html .ui-panel-page-container-a{
+		width:400px;
+		margin: 0 auto;
+		margin-top:10px;
+		height:40px;
+		line-height:40px !important;
+	}
+
+	.ui-mobile label, .ui-controlgroup-label{
+		width:200px;
+		margin: 0 auto;
+		color:#000;
+		text-shadow: 0 1px 0 #777;
+	}
+
+	.ui-input-text input, .ui-input-search input  {
+		height:40px;
+		line-height:40px !important;
+	}
+
+
+	.ui-page-theme-a .ui-btn, html .ui-bar-a .ui-btn, html .ui-body-a .ui-btn, html body .ui-group-theme-a .ui-btn, html head+body .ui-btn.ui-btn-a, .ui-page-theme-a .ui-btn, html .ui-bar-a .ui-btn, html .ui-body-a .ui-btn, html body .ui-group-theme-a .ui-btn, html head+body .ui-btn.ui-btn-a{
+		width:170px;
+		margin: 0 auto;
+		margin-top:10px;
+		height:40px;
+		line-height:40px !important;
+		background:#777777 !important;
+		color:#fff;
+		text-shadow: 0 1px 0 #000;
+		border:none
+	}
+
+
+	.botoes_hide{
+		display:none
+	}
+
+	li{list-style: none}
+	#consignacao{
+		margin: 10px
+	}
+
+	#autocompleteCliente{
+
+	}
+
+	#autocompleteCliente .nomeCLiente{
+		border-bottom: #ccc solid 1px;
+		width: 100%;
+		padding: 5px;
+	}
+
+	#botao_abrir{
+		display:none;
+		height:40px;
+		width:400px;
+		line-height:40px !important;
+		background:#777777 !important;
+		color:#fff;
+		text-shadow: 0 1px 0 #000;
+		border-radius: 5px;
+		-webkit-border-radius: 5px;
+		-moz-border-radius: 5px;
+		margin: 0 auto;
+		margin-top: 10px;
+		text-align: center;
+		height: 35px;
+		line-height: 35px;
+	}
+
+	#referenciaBusca li{
+		padding: 5px;
+	}
+
+	#ultimoProduto{
+		margin: 0 auto;
+		width: 400px;
+		text-align: center;
+		display:none;
+		background:#eee;
+		padding-bottom:10px
+	}
+
+	#ultimoProduto .Quantidade, .CodigoBarraAnt, .CodigoFornecedor{
+		width: 400px;
+		text-align: center;
+		margin-top: 10px;
+	}
+
+	#ultimoProduto .Descricao, .Imagem{
+		margin-top: 10px;
+	}
+
+	#ultimoProduto .DescricaoEtiqueta2, .Precovenda, .Unitario{
+		width: 400px;
+		text-align: center;
+		margin-top: 10px;
+	}
+
+	.div_produto{
+		width:400px;
+		margin:0 auto;
+		text-align:center;
+		margin-bottom:25px;
+		background:#eee;
+		border-radius: 5px;
+		-webkit-border-radius: 5px;
+		-moz-border-radius: 5px;
+	}
+
+	.div_produto .item_produto{
+		width:400px;
+		margin:0 auto;
+		/*border-bottom:1px solid #000;*/
+		text-align:center;
+		padding-top:5px;
+		padding-bottom:5px;
+	}
+	div.ui-slider{
+		width:400px;
+		margin:0 auto !important;
+		height: 70px;
+	}
+	div.ui-slider .ui-slider-track{
+		top:26px
+	}
+
+	.titulo_tabela{
+		width:400px;
+		margin:0 auto;
+		text-align:center;
+		background:#eee;
+		padding-top:5px;
+		padding-bottom:5px;
+	}
+
+}
+
+#totaltela{
+	background:#fff;
+	padding:10px;
+	font-size:24px;
+}
+
+#totaltela #total{
+	float:right;
+	font-size:24px;
+}
